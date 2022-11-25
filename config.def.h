@@ -57,7 +57,7 @@ static const Rule rules[] = {
     { NULL,                   "libreoffice",        NULL,                         1 << 3,        0,            0,           -1 },
     { "wps",                  NULL,                "WPS Writer",                  1 << 3,        0,            0,           -1 },
     { "wpp",                  NULL,                "WPS Presentation",            1 << 3,        0,            0,           -1 },
-    { "et",                   NULL,                "WPS Spredsheets",             1 << 3,        0,            0,           -1 },
+    { "et",                   NULL,                "WPS Spreadsheets",            1 << 3,        0,            0,           -1 },
     { "Thunar",               "thunar",             NULL,                         1 << 5,        0,            0,           -1 },
     { "St",                   NULL,                 "st",                         0,             1,            0,           -1 },
     { "St",                   NULL,                 "Neomutt",                    1 << 6,        0,            0,           -1 },
