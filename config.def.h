@@ -6,6 +6,7 @@ static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 17;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 
 static const char *fonts[]          = { "Hack Nerd Font:weight=bold:size=8:antialias=true:hinting=true", "NotoColorEmoji:weight=bold:size=8:antialias=true:hinting=true", "NotoEmoji:weight=bold:size=8:antialias=true:hinting=true" };
@@ -15,11 +16,25 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_red[]         = "#924441";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_red,  col_red  },
+
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
+ static const char *colors[][3]      = {
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+ 	[SchemeSel]  = { col_gray4, col_red,  col_red  },
+ };
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
+ 
+
+
+
+
+
 static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 7;        /* vertical padding for statusbar */
 
@@ -33,13 +48,16 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 *  use tags mask to point an application to a specific workspace
 	 */
-	/* class                       instance              title              tags mask         isfloating            monitor */
+	/* class                    instance              title                        tags mask      iscentered     isfloating       monitor */
     { "Google-chrome",        NULL,                 NULL,                         1,             0,            0,           -1 },
     { "TelegramDesktop",      NULL,                 NULL,                         1 << 4,        0,            0,           -1 },
     { "discord",              NULL,                 NULL,                         1 << 4,        0,            0,           -1 },
     { "Thunderbird",          NULL,                 NULL,                         1 << 6,        0,            0,           -1 },
-    { "mpv",                  NULL,                 NULL,                         1 << 4,        1,            0,           -1 },
+    { "mpv",                  NULL,                 NULL,                         1 << 4,        1,            1,           -1 },
     { NULL,                   "libreoffice",        NULL,                         1 << 3,        0,            0,           -1 },
+    { "wps",                  NULL,                "WPS Writer",                  1 << 3,        0,            0,           -1 },
+    { "wpp",                  NULL,                "WPS Presentation",            1 << 3,        0,            0,           -1 },
+    { "et",                   NULL,                "WPS Spredsheets",             1 << 3,        0,            0,           -1 },
     { "Thunar",               "thunar",             NULL,                         1 << 5,        0,            0,           -1 },
     { "St",                   NULL,                 "st",                         0,             1,            0,           -1 },
     { "St",                   NULL,                 "Neomutt",                    1 << 6,        0,            0,           -1 },
