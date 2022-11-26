@@ -16,7 +16,23 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_red[]         = "#924441";
-static const char *colors[][3]      = {
+
+static const unsigned int baralpha = 180;
+static const unsigned int borderalpha = 180;
+ static const char *colors[][3]      = {
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+ 	[SchemeSel]  = { col_gray4, col_red,  col_red  },
+ };
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { 180, baralpha, borderalpha },
+	[SchemeSel]  = { 180, baralpha, borderalpha },
+};
+ 
+
+
+
 
 
 static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
@@ -39,6 +55,9 @@ static const Rule rules[] = {
     { "Thunderbird",          NULL,                 NULL,                         1 << 6,        0,            0,           -1 },
     { "mpv",                  NULL,                 NULL,                         1 << 4,        1,            1,           -1 },
     { NULL,                   "libreoffice",        NULL,                         1 << 3,        0,            0,           -1 },
+    { "wps",                  NULL,                "WPS Writer",                  1 << 3,        0,            0,           -1 },
+    { "wpp",                  NULL,                "WPS Presentation",            1 << 3,        0,            0,           -1 },
+    { "et",                   NULL,                "WPS Spreadsheets",            1 << 3,        0,            0,           -1 },
     { "Thunar",               "thunar",             NULL,                         1 << 5,        0,            0,           -1 },
     { "St",                   NULL,                 "st",                         0,             1,            0,           -1 },
     { "St",                   NULL,                 "Neomutt",                    1 << 6,        0,            0,           -1 },
