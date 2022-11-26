@@ -17,8 +17,8 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_red[]         = "#924441";
 
-static const unsigned int baralpha = 0xd0;
-static const unsigned int borderalpha = OPAQUE;
+static const unsigned int baralpha = 180;
+static const unsigned int borderalpha = 180;
  static const char *colors[][3]      = {
  	/*               fg         bg         border   */
  	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -26,8 +26,8 @@ static const unsigned int borderalpha = OPAQUE;
  };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeNorm] = { 180, baralpha, borderalpha },
+	[SchemeSel]  = { 180, baralpha, borderalpha },
 };
  
 
