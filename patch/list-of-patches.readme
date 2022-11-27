@@ -11,3 +11,5 @@ dwm-attachaside
 dwm-rotatestack
 dwm-alwayscenter
 dwm-movestack
+dwm-preserveonrestart-6.3.diff
+dwm-bar-height-6.2.diff
