@@ -22,7 +22,7 @@ function run {
 #run "xfce4-power-manager"
 #run "blueberry-tray"
 run "/usr/lib/xfce4/notifyd/xfce4-notifyd"
-run "batnotif.sh"
+# run "batnotif.sh"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 picom -b  --config ~/.config/picom/picom.conf &
 run "numlockx on"
