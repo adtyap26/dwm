@@ -68,6 +68,8 @@ static const Rule rules[] = {
     { "Postman",              NULL,                 NULL,                         0,             0,            0,           -1 },
     { "vlc",                  NULL,                 NULL,                         1 << 4,        0,            0,           -1 },
     { "st-256color",          NULL,                 "nmtui",                      1 << 6,        1,            1,           -1 },
+    { "st-256color",          NULL,                 "man",                        0,             1,            1,           -1 },
+    { "st-256color",          NULL,                 "dmenu_man.sh",               0,             1,            1,           -1 },
     { "st-256color",          NULL,                 "musikcube",                  1 << 4,        1,            1,           -1 },
     { "Evince",               NULL,                 "Recent Documents",           1 << 3,        0,            0,           -1 },
     { "Yad",                  NULL,                 "YAD",                        1 << 3,        0,            0,           -1 },
