@@ -34,12 +34,16 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 #run "conky -c $HOME/.config/arco-dwm/system-overview"
 #you can set wallpapers in themes as well
 # feh --randomize --bg-fill /usr/share/backgrounds/* &
-feh --randomize --bg-fill ~/Pictures/Wallpapers/* &
-#feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+# feh --bg-fill /usr/share/backgrounds/archlinux-login-backgrounds/att-01.jpg &
+feh --randomize --bg-fill ~/Apps/Tokyo-Night-GTK-Theme/wallpapers/* &
+# feh --randomize --bg-fill ~/Pictures/Wallpapers/* &
+# feh --bg-fill ~/Pictures/Wallpapers/images/room/12.jpg &
 #wallpaper for other Arch based systems
-#feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
+# feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
+
 #run applications from startup
 
+xinput set-prop 12 "Device Enabled" 0 
 #run "insync start"
 #run "spotify"
 #run "ckb-next -b"
