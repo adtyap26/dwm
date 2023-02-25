@@ -1,10 +1,17 @@
 --- config.def.h
 +++ config.def.h
-@@ -94,6 +94,7 @@ static Key keys[] = {
- 	TAGKEYS(                        XK_8,                      7)
- 	TAGKEYS(                        XK_9,                      8)
- 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+@@ -27,9 +28,11 @@ static const Rule rules[] = {
+ 	 *	WM_CLASS(STRING) = instance, class
+ 	 *	WM_NAME(STRING) = title
+ 	 */
+-	/* class      instance    title       tags mask     isfloating   monitor */
+-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
++	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
++	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
++	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
++	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
++	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
  };
  
- /* button definitions */
+ /* layout(s) */

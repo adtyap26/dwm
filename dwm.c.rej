@@ -1,29 +1,24 @@
 --- dwm.c
 +++ dwm.c
-@@ -1061,6 +1062,26 @@ manage(Window w, XWindowAttributes *wa)
- 	updatewindowtype(c);
- 	updatesizehints(c);
- 	updatewmhints(c);
-+	{
-+		int format;
-+		unsigned long *data, n, extra;
-+		Monitor *m;
-+		Atom atom;
-+		if (XGetWindowProperty(dpy, c->win, netatom[NetClientInfo], 0L, 2L, False, XA_CARDINAL,
-+				&atom, &format, &n, &extra, (unsigned char **)&data) == Success && n == 2) {
-+			c->tags = *data;
-+			for (m = mons; m; m = m->next) {
-+				if (m->num == *(data+1)) {
-+					c->mon = m;
-+					break;
-+				}
-+			}
-+		}
-+		if (n > 0)
-+			XFree(data);
-+	}
-+	setclienttagprop(c);
-+
- 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
- 	grabbuttons(c, 0);
- 	if (!c->isfloating)
+@@ -98,9 +104,11 @@ struct Client {
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
++	pid_t pid;
+ 	Client *next;
+ 	Client *snext;
++	Client *swallowing;
+ 	Monitor *mon;
+ 	Window win;
+ };
+@@ -314,6 +332,8 @@ applyrules(Client *c)
+ 		&& (!r->class || strstr(class, r->class))
+ 		&& (!r->instance || strstr(instance, r->instance)))
+ 		{
++			c->isterminal = r->isterminal;
++			c->noswallow  = r->noswallow;
+ 			c->isfloating = r->isfloating;
+ 			c->tags |= r->tags;
+ 			for (m = mons; m && m->num != r->monitor; m = m->next);

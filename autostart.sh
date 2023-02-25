@@ -33,9 +33,9 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 #run "nitrogen --restore"
 #run "conky -c $HOME/.config/arco-dwm/system-overview"
 #you can set wallpapers in themes as well
-# feh --randomize --bg-fill /usr/share/backgrounds/* &
+feh --randomize --bg-fill /usr/share/backgrounds/* &
 # feh --bg-fill /usr/share/backgrounds/archlinux-login-backgrounds/att-01.jpg &
-feh --randomize --bg-fill ~/Apps/Tokyo-Night-GTK-Theme/wallpapers/* &
+# feh --randomize --bg-fill ~/Apps/Tokyo-Night-GTK-Theme/wallpapers/* &
 # feh --randomize --bg-fill ~/Pictures/Wallpapers/* &
 # feh --bg-fill ~/Pictures/Wallpapers/images/room/12.jpg &
 #wallpaper for other Arch based systems
