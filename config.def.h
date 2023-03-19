@@ -39,8 +39,8 @@ static const int horizpadbar        = 6;        /* horizontal padding for status
 static const int vertpadbar         = 7;        /* vertical padding for statusbar */
 
 /* tagging */
-// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { " ", "dev", "chat", "doc", "mult", "dir", "set" };
+ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+// static const char *tags[] = { " ", "dev", "chat", "doc", "mult", "dir", "set" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -71,7 +71,7 @@ static const Rule rules[] = {
 	/* class                    instance              title                        tags mask      iscenterd      isfloating      isterminal   noswallow    monitor */
     { "st-256color",          NULL,                 "man",                        0,             1,            1,                0,            1,            -1 },
     { "st-256color",          NULL,                 "dmenu_man.sh",               0,             1,            1,                0,            1,            -1 },
-    { "st-256color",          NULL,                 "musikcube",                  1 << 4,        1,            1,                0,            1,            -1 },
+    { "Alacritty",            NULL,                 "musikcube",                  1 << 4,        1,            1,                0,            1,            -1 },
     { "Alacritty",            NULL,                 "falacritty",                 0,             1,            1,                1,            1,            -1 },
     { "Evince",               NULL,                 "Recent Documents",           1 << 3,        0,            0,                0,            0,            -1 },
     { "Yad",                  NULL,                 "YAD",                        1 << 3,        0,            0,                0,            0,            -1 },
