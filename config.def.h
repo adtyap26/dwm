@@ -67,11 +67,11 @@ static const Rule rules[] = {
     { NULL,                  "st-256color",        "ranger",                      0,             0,            0,                1,            0,            -1 },
     { "Postman",              NULL,                 NULL,                         0,             0,            0,                0,            0,            -1 },
     { "vlc",                  NULL,                 NULL,                         1 << 4,        0,            0,                0,            0,            -1 },
-    { "st-256color",          NULL,                 "nmtui",                      1 << 6,        1,            1,                0,            0,            -1 },
+    { "termite",              NULL,                 "nmtui",                      1 << 6,        1,            1,                0,            0,            -1 },
 	/* class                    instance              title                        tags mask      iscenterd      isfloating      isterminal   noswallow    monitor */
     { "st-256color",          NULL,                 "man",                        0,             1,            1,                0,            1,            -1 },
     { "st-256color",          NULL,                 "dmenu_man.sh",               0,             1,            1,                0,            1,            -1 },
-    { "Alacritty",            NULL,                 "musikcube",                  1 << 4,        1,            1,                0,            1,            -1 },
+    { "st-256color",          NULL,                 "musikcube",                  1 << 4,        1,            1,                0,            1,            -1 },
     { "Alacritty",            NULL,                 "falacritty",                 0,             1,            1,                1,            1,            -1 },
     { "Evince",               NULL,                 "Recent Documents",           1 << 3,        0,            0,                0,            0,            -1 },
     { "Yad",                  NULL,                 "YAD",                        1 << 3,        0,            0,                0,            0,            -1 },
@@ -85,7 +85,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #include "layouts.c"

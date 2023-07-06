@@ -1,10 +1,9 @@
 #!/bin/bash
 
 function run {
- if ! pgrep $1 ;
-  then
-    $@&
-  fi
+	if ! pgrep $1; then
+		$@ &
+	fi
 }
 #run "xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal"
 #run "xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
@@ -24,7 +23,7 @@ function run {
 run "/usr/lib/xfce4/notifyd/xfce4-notifyd"
 # run "batnotif.sh"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-picom -b  --config ~/.config/picom/picom.conf &
+picom -b --config ~/.config/picom/picom.conf &
 run "numlockx on"
 # run "volumeicon"
 run "dwmblocks" &
@@ -34,6 +33,7 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 #run "conky -c $HOME/.config/arco-dwm/system-overview"
 #you can set wallpapers in themes as well
 feh --randomize --bg-fill /usr/share/backgrounds/* &
+# feh --bg-fill ~/Pictures/Wallpapers/wallhaven-1p36w3.jpg
 # feh --bg-fill /usr/share/backgrounds/archlinux-login-backgrounds/att-01.jpg &
 # feh --randomize --bg-fill ~/Apps/Tokyo-Night-GTK-Theme/wallpapers/* &
 # feh --randomize --bg-fill ~/Pictures/Wallpapers/* &
@@ -43,7 +43,7 @@ feh --randomize --bg-fill /usr/share/backgrounds/* &
 
 #run applications from startup
 
-xinput set-prop 12 "Device Enabled" 0 
+xinput set-prop 10 "Device Enabled" 0
 #run "insync start"
 #run "spotify"
 #run "ckb-next -b"
