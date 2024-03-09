@@ -1,17 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 6;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 17;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 
-static const char *fonts[]          = { "Hack Nerd Font:weight=bold:size=8:antialias=true:hinting=true", "NotoColorEmoji:weight=bold:size=8:antialias=true:hinting=true", "NotoEmoji:weight=bold:size=8:antialias=true:hinting=true" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "Hack Nerd Font:weight=bold:size=11:antialias=true:hinting=true", "NotoColorEmoji:weight=bold:size=11:antialias=true:hinting=true", "NotoEmoji:weight=bold:size=11:antialias=true:hinting=true", "fontello:size=30:antialias=true:hinting=true" };
+static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#1f2935";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -35,11 +35,11 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { 180, baralpha, borderalpha },
 };
 
-static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 7;        /* vertical padding for statusbar */
+static const int horizpadbar        = 8;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 9;        /* vertical padding for statusbar */
 
 /* tagging */
- static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 // static const char *tags[] = { " ", "dev", "chat", "doc", "mult", "dir", "set" };
 
 static const Rule rules[] = {
@@ -50,11 +50,12 @@ static const Rule rules[] = {
 	 */
 
 	/* class                    instance              title                        tags mask      iscenterd      isfloating      isterminal   noswallow    monitor */
-    { "Google-chrome",        NULL,                 NULL,                         1,             0,            0,                0,            0,            -1 },
+    { "firefox",              NULL,                 NULL,                         1,             0,            0,                0,            0,            -1 },
     { "TelegramDesktop",      NULL,                 NULL,                         1 << 2,        0,            0,                0,            0,            -1 },
     { "chatgpt-nativefier-ad5e7a",      NULL,       NULL,                         1 << 2,        0,            0,                0,            0,            -1 },
     { "discord",              NULL,                 NULL,                         1 << 2,        0,            0,                0,            0,            -1 },
-    { "Thunderbird",          NULL,                 NULL,                         1 << 2,        0,            0,                0,            0,            -1 },
+    { "thunderbird",          NULL,                 NULL,                         1 << 9,        0,            0,                0,            0,            -1 },
+    { "Notion",              "notion",              NULL,                         1 << 8,        0,            0,                0,            0,            -1 },
     { "mpv",                  NULL,                 NULL,                         1 << 4,        1,            1,                0,            1,            -1 },
     { "Standard Notes",       NULL,                 NULL,                         1 << 3,        0,            0,                0,            0,            -1 },
     { NULL,                   "libreoffice",        NULL,                         1 << 3,        0,            0,                0,            0,            -1 },
@@ -63,7 +64,7 @@ static const Rule rules[] = {
     { "et",                   NULL,                "WPS Spreadsheets",            1 << 3,        0,            0,                0,            0,            -1 },
     { "Thunar",               "thunar",             NULL,                         1 << 5,        0,            0,                0,            0,            -1 },
     { "st-256color",          NULL,                 NULL,                         0,             1,            0,                1,            0,            -1 },
-    { "St",                   NULL,                 "Neomutt",                    1 << 6,        0,            0,                0,            0,            -1 },
+    { "Alacritty",            NULL,                 "Neomutt",                    1 << 6,        0,            0,                0,            0,            -1 },
     { NULL,                  "st-256color",        "ranger",                      0,             0,            0,                1,            0,            -1 },
     { "Postman",              NULL,                 NULL,                         0,             0,            0,                0,            0,            -1 },
     { "vlc",                  NULL,                 NULL,                         1 << 4,        0,            0,                0,            0,            -1 },
@@ -79,6 +80,7 @@ static const Rule rules[] = {
     { "xfce4-screenshooter",  NULL,                 "Save screenshot as...",      0,             1,            1,                0,            1,            -1 },
     { "Thunar",               "thunar",             "File Operation Progress",    0,             0,            1,                0,            1,            -1 },
     { "GParted",              NULL,                 NULL,                         0,             1,            1,                0,            1,            -1 },
+    { "trayer",               NULL,                 NULL,                         1 << 9,        1,            1,                0,            1,            -1 },
   };
 
 
@@ -151,15 +153,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ControlMask,			      XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_j,		   rotatestack,    {.i = +1 } },	
 	{ MODKEY|ShiftMask,             XK_k,		   rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -186,6 +188,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_0,                      9)
 };
 
 /* IF YOU HAVE A AZERTY KEYBOARD USE THESE CODES
