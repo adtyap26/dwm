@@ -45,7 +45,9 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 #run "conky -c $HOME/.config/arco-dwm/system-overview"
 #you can set wallpapers in themes as well
 # feh --randomize --bg-fill ~/Pictures/wallpapers/* &
-feh --bg-scale ~/Pictures/wallpapers/fullmetal.jpg &
+# feh --bg-scale ~/Pictures/wallpapers/fullmetal.jpg &
+feh --bg-fill ~/Pictures/wallpapers/archlinux.png &
+# feh --bg-scale ~/Pictures/backup-pictures/0062.jpg &
 # feh --bg-fill /usr/share/backgrounds/archlinux-login-backgrounds/att-01.jpg &
 # feh --randomize --bg-fill ~/Apps/Tokyo-Night-GTK-Theme/wallpapers/* &
 # feh --randomize --bg-fill ~/Pictures/Wallpapers/* &
@@ -57,7 +59,7 @@ feh --bg-scale ~/Pictures/wallpapers/fullmetal.jpg &
 #run applications from startup
 
 # xinput set-prop 10 "Device Enabled" 0
-sleep 20
+sleep 15
 run "thunderbird"
 run "trayer --edge bottom --distance 20  --align center --SetDockType true --SetPartialStrut true --width 10 --transparent true --alpha 0 --tint 0x292d3e --height 19"
 run "nm-applet"
